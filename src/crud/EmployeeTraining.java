@@ -24,7 +24,7 @@ public class EmployeeTraining{
 
             try{
                 // Establish a connection to the database
-                connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+                connection = DBConnection.getConnection();
 
                 // Create Prepared Statement for inserting data into table
                 pstat = connection.prepareStatement("INSERT INTO employee_training (employee_id, course_id, assigned_by, due_date) VALUES (?,?,?,?)");
@@ -61,7 +61,7 @@ public class EmployeeTraining{
 
             try{
                 // Establish a connection to the database
-                connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+                connection = DBConnection.getConnection();
 
                 // Create Prepared Statement for updating data in table
                 pstat = connection.prepareStatement("UPDATE employee_training SET assigned_by=?, due_date=? WHERE employee_id=? AND course_id=?");
@@ -98,7 +98,7 @@ public class EmployeeTraining{
 
             try{
                 // Establish a connection to the database
-                connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+                connection = DBConnection.getConnection();
 
                 // Create Prepared Statement for retrieving data from table
                 pstat = connection.prepareStatement("SELECT * FROM employee_training WHERE employee_id=?");

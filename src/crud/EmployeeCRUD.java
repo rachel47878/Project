@@ -22,7 +22,7 @@ public class EmployeeCRUD {
 
             try {
                 // Establish a connection to the database
-                connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+                connection = DBConnection.getConnection();
 
                 // Create Prepared Statement for inserting data into table
                 pstat = connection.prepareStatement("INSERT INTO employees (first_name, last_name, position, job_title, hire_date, email, department_id) VALUES (?,?,?,?,?,?,?)");
@@ -61,7 +61,7 @@ public class EmployeeCRUD {
 
             try{
                 // Establish a connection to the database
-                connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+                connection = DBConnection.getConnection();
             
                 // Create Prepared Statement for updating data in the table
                 pstat = connection.prepareStatement("UPDATE EMPLOYEES SET first_name=? Where last_name=?");
@@ -93,7 +93,7 @@ public class EmployeeCRUD {
 
             try{
                     // Establish a connection to the database
-                    connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+                    connection = DBConnection.getConnection();
 
                     // Create Prepared Statement for updating data in the table
                     pstat = connection.prepareStatement("SELECT employee_ID, first_name, last_name FROM employees");
@@ -140,7 +140,7 @@ public class EmployeeCRUD {
 
             try{
                     // Establish a connection to the database
-                    connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+                    connection = DBConnection.getConnection();
 
                     // Create Prepared Statement for deleting data from the table
                     pstat = connection.prepareStatement("DELETE FROM EMPLOYEES WHERE employee_Id = 5");

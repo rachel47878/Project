@@ -21,7 +21,7 @@ public class DepartmentCRUD{
 
             try {
                 // Establish a connection to the database
-                connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+                connection = DBConnection.getConnection();
 
                 // Create Prepared Statement for inserting data into table
                 pstat = connection.prepareStatement("INSERT INTO departments (department_id, department_name, location, manager_id) VALUES (?,?,?,?)");
@@ -57,7 +57,7 @@ public class DepartmentCRUD{
 
             try{
                 // Establish a connection to the database
-                connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+                connection = DBConnection.getConnection();
 
                 // Create Prepared Statement for updating data in the table
                 pstat = connection.prepareStatement("UPDATE departments SET department_name = ?, location = ?, manager_id WHERE department_id = ?");
@@ -92,7 +92,7 @@ public class DepartmentCRUD{
 
             try{
                 // Establish a connection to the database
-                connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+                connection = DBConnection.getConnection();
 
                 // Create Prepared Statement for retrieving data from the table
                 pstat = connection.prepareStatement("SELECT department_name, location, manager_id FROM departments WHERE department_id = ?");
@@ -136,7 +136,7 @@ public class DepartmentCRUD{
 
             try{
                 // Establish a connection to the database
-                connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+                connection = DBConnection.getConnection();
 
                 // Create Prepared Statement for deleting data from the table
                 pstat = connection.prepareStatement("DELETE FROM departments WHERE department_id = ?");

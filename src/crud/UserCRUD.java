@@ -22,7 +22,7 @@ public class UserCRUD {
 
         try {
             // Establish a connection to the database
-            connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+            connection = DBConnection.getConnection();
 
             // Create Prepared Statement for inserting data into table
             pstat = connection.prepareStatement("INSERT into users (user_id, username, password, role) VALUES (?,?,?,?)");
@@ -57,7 +57,7 @@ public class UserCRUD {
 
         try {
             // Establish a connection to the database
-            connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+            connection = DBConnection.getConnection();
 
             // Create Prepared Statement for updating data in the table
             pstat = connection.prepareStatement("UPDATE users SET username = ?, role = ? WHERE user_id = ?");
@@ -92,7 +92,7 @@ public class UserCRUD {
 
             try {
                 // Establish a connection to the database
-                connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+                connection = DBConnection.getConnection();
 
                 // Create Prepared Statement for retrieving data from the table
                 pstat = connection.prepareStatement("SELECT username, role FROM users WHERE user_id = ?");
@@ -129,7 +129,7 @@ public class UserCRUD {
 
             try {
                 // Establish a connection to the database
-                connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+                connection = DBConnection.getConnection();
 
                 // Create Prepared Statement for deleting data from the table
                 pstat = connection.prepareStatement("DELETE FROM users WHERE user_id = ?");

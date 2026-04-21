@@ -22,7 +22,7 @@ public class AnnouncementCRUD {
 
         try {
             // Establish a connection to the database
-            connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+            connection = DBConnection.getConnection();
 
             // create Prepared Statement for inserting data into table
             pstat = connection.prepareStatement("INSERT INTO announcements (announcement_ID, title, content, date_Posted) VALUES (?,?,?,?)");
@@ -58,7 +58,7 @@ public class AnnouncementCRUD {
 
         try{
             // Establish a connection to the database
-            connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+            connection = DBConnection.getConnection();
         
             // Create Prepared Statement for updating data in the table
             pstat = connection.prepareStatement("UPDATE announcements SET announcement_id=? Where title=?");
@@ -91,7 +91,7 @@ public class AnnouncementCRUD {
 
         try{
                 // Establish a connection to the database
-                connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+                connection = DBConnection.getConnection();
 
                 // Create Prepared Statement for updating data in the table
                 pstat = connection.prepareStatement("SELECT announcement_id, title, content from announcements");
@@ -137,7 +137,7 @@ public class AnnouncementCRUD {
 
         try{
                 // Establish a connection to the database
-                connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+                connection = DBConnection.getConnection();
 
                 // Create Prepared Statement for deleting data from the table
                 pstat = connection.prepareStatement("DELETE FROM announcements WHERE announcement_id = 1");

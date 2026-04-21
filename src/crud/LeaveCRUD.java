@@ -20,7 +20,7 @@ public class LeaveCRUD {
     public void createLeave(int requestId, int employeeId, String startDate, String endDate, String leaveType, String status) {
         try {
             // Establish connection to the database
-            connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+            connection = DBConnection.getConnection();
 
             // Create Prepared Statement for inserting data into table
             pstat = connection.prepareStatement("INSERT into leave (request_id, employee_id, start_date, end_date, leave_type, status) VALUES (?,?,?,?,?,?)");
@@ -57,7 +57,7 @@ public class LeaveCRUD {
     public void updateLeave(int requestId, String status) {
         try {
             // Establish connection to the database
-            connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+            connection = DBConnection.getConnection();
 
             // Create Prepared Statement for updating data in table
             pstat = connection.prepareStatement("UPDATE leave SET status = ? WHERE request_id = ?");
@@ -91,7 +91,7 @@ public class LeaveCRUD {
 
         try {
             // Establish a connection to the database
-            connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+            connection = DBConnection.getConnection();
 
             // Create Prepared Statement for retrieving data from table
             pstat = connection.prepareStatement("SELECT request_id, start_date, end_date, leave_type, status FROM leave WHERE employee_id = ?");
@@ -135,7 +135,7 @@ public class LeaveCRUD {
 
             try {
                 // Establish a connection to the database
-                connection = DriverManager.getConnection(DATABASE_URL, "root", "password");
+                connection = DBConnection.getConnection();
 
                 // Create Prepared Statement for retrieving data from table
                 pstat = connection.prepareStatement("SELECT request_id, employee_id, start_date, end_date, leave_type, status FROM leave");
